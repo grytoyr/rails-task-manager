@@ -1,0 +1,30 @@
+<div class="page-wrap">
+   <h1><%= @task.title %></h1>
+  <div class="content">
+
+    <div class="list"><%= @task.details %></div>
+    <% if @task.completed %>
+      <div class="list"><i class="far fa-check-circle"></i> This task is completed</div>
+    <% else %>
+      <div class="list"><i class="far fa-circle"></i> This task is not completed</div>
+    <% end %>
+    <div class="button-wrap">
+      <div class="button">
+        <%= link_to 'Edit task', edit_path(@task) %>
+      </div>
+
+      <div class="button">
+        <%= link_to 'Back to list', tasks_path %>
+      </div>
+
+      <div class="button">
+        <%= link_to "Delete", task_path(@task),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
